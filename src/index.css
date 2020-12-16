@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pretty-button{
+    border: none;
+    font-size: 1rem;
+}
+
+.pretty-button {
+    background-color: #1e90ff;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
+}
+
+.pretty-button:focus {
+    box-shadow: 0 0 5px#1e90ff;
+    outline: none;
+}
+
+.pretty-button:hover {
+    background-color: #1880e7;
+}

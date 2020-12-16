@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header/Header.js';
+import Login from "./components/Auth/Login"
+import Register from "./components/Auth/Register"
+import Submit from './components/Submit/Submit';
+import Displays from './components/Displays/Displays';
+import Detail from './components/Detail/Detail';
+import axios from 'axios';
+import URL from './config';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+		<div>
+			<Header />
+			<main>
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/submit" exact component={Submit} />
+			</main>
+		</div>
+	);
+};
 
 export default App;
