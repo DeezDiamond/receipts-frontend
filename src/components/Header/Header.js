@@ -1,15 +1,11 @@
 // // Will contain navigation and indication that the user is logged in. 
-import React, { useState } from 'react';
-import { Link, Route, useHistory } from 'react-router-dom';
-import Login from '../../components/Login/Login';
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import './header.css';
 import "../../index.css"
 
 const Header = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-	const [user, setUser] = useState()
-	const history = useHistory();
+    const history = useHistory();
 
     const handleLogout = () => {
 		localStorage.clear();

@@ -1,6 +1,6 @@
 // // Form to upload a new receipt. 
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import "./submit.css";
@@ -9,7 +9,6 @@ import Header from "../Header/Header"
 
 const Submit = () => {
     const history = useHistory();
-	const fileInput = useRef(null);
 
     const [receipt, setReceipt] = useState({
         retailer: "",
