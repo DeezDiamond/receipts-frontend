@@ -4,7 +4,6 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import "./submit.css";
-// import FileUploader from "../../FileUploader"
 import URL from "../../config"
 import Header from "../Header/Header"
 
