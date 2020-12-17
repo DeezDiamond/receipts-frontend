@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import URL from '../../config';
-import { Redirect } from 'react-router-dom';
+import "../../index.css"
+import { Link, Redirect } from 'react-router-dom';
 
 const Register = () => {
 	const register = {
@@ -40,7 +41,8 @@ const Register = () => {
 	return (
 		<div>
 			<p className='sign-up'>
-				Sign up for an account to maintain your uploaded receipts. Once signed up, you will be prompted to login. 
+				Sign up for an account to maintain your uploaded receipts. Once signed
+				up, you will be prompted to login.
 			</p>
 			<form onSubmit={handleSubmit} className='regForm'>
 				<div className='form-component'>
@@ -77,6 +79,10 @@ const Register = () => {
 					Sign up
 				</button>
 				{passwordError && <h3>Passwords must match.</h3>}
+				<button className='pretty-button'>
+					<Link to='/login'>Cancel</Link>
+				</button>
+				
 			</form>
 		</div>
 	);

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
 import APIURL from '../../config';
 
-const receiptInfo = `${URL}/userreceipts`;
+const receiptInfo = `${APIURL}/receipts`;
 
 const Detail = ({ match }) => {
 	const history = useHistory();
