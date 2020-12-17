@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import './auth.css';
 import URL from '../../config';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -33,13 +32,13 @@ const Login = () => {
 
 	// if there's a user show the message below
 	if (token) {
-		return <div>You're loggged in</div>;
+		return <div>You're loggged in. Go to your <Link to='/'>Home Page</Link>receipts</div>;
 	}
 
 	// if there's no user, show the login form
 	return (
         <div>
-            <p>Log in to manage your receipts</p>
+            <p>Log in to manage your receipts. If you don't have an account, please <Link to="/register">register for an account</Link></p>
 		<form onSubmit={handleSubmit}>
 			<label htmlFor='email'>Email: </label>
 			<input
@@ -58,6 +57,10 @@ const Login = () => {
 				/>
 			</div>
 			<button type='submit' className='pretty-button'>Login</button>
+
+			<button className='pretty-button'>
+				<Link to='/register'>New User</Link>
+			</button>
 		</form>
         </div>
 	);
