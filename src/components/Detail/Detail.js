@@ -15,15 +15,20 @@ const Detail = ({ match }) => {
 	useEffect(() => {
 		const url = `${receiptInfo}${match.params.id}`;
 		console.log(url);
-		axios(url)
+		axios({
+			url: receiptInfo,
+			headers: {
+				'content-type': 'multipart/form-data',
+				Authorization: `Token ${localStorage.getItem('token')}`,
+			},
+		})
 			.then((res) => {
-				setDetail(res.data);
 				setReceipt(res.data);
 			})
 			.catch((err) => {
-				console.error(err);
+				return 'There appears to be a file with Detail.js.';
 			});
-	}, [match.params.id]);
+	}, []);
 
 	// Delete a Submission
 	const handleDelete = (event) => {
@@ -49,6 +54,10 @@ const Detail = ({ match }) => {
 			url: url,
 			method: 'PUT',
 			data: detail,
+			headers: {
+				'content-type': 'multipart/form-data',
+				Authorization: `Token ${localStorage.getItem('token')}`,
+			},
 		}).then(() => {
 			history.push('/');
 		});

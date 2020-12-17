@@ -1,38 +1,56 @@
+// // Register a new user
+
 import React, { useState } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import URL from '../../config';
 import "../../index.css"
 import { Link, Redirect } from 'react-router-dom';
 
 const Register = () => {
-	const register = {
+
+	const [passwordError, setPasswordError] = useState(false);
+	const [redirect, setRedirect] = useState();
+
+	const signup = {
+		username: "",
 		email: '',
 		password: '',
-		password2: '',
+		re_password: '',
 		errors: {},
 	};
-	const [passwordError, setPasswordError] = useState(false);
-	const [redirect, setRedirect] = useState(false);
-	const [joinState, setJoinState] = useState(register);
+
+	const [user, setUser] = useState(signup);
+
 	const handleChange = (event) => {
 		event.persist();
-		setJoinState({ ...joinState, [event.target.id]: event.target.value });
+		setUser({ ...user, [event.target.id]: event.target.value });
 	};
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		setJoinState(register);
-		if (joinState.password === joinState.password2) {
-			Axios({
-				url: `${URL}/users/`,
-				method: 'POST',
-				data: joinState,
-			}).then((res) => {
-				console.log(res);
-				setRedirect(true);
-			});
-		} 
-	};
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const url = `${URL}/users/`;
+        const formData = new FormData()
+        formData.append("username", user.username)
+        formData.append("email", user.email)
+        formData.append("password", user.password)
+        formData.append("re_password", user.re_password)
+
+        axios({
+            url: url,
+            method: "POST",
+            data: formData,
+            headers: {
+                    "content-type": "multipart/form-data",
+                }
+            
+        }).then((res) => {
+            console.log(res);
+            redirect.push("/login");
+        })
+        .catch(error => {
+            console.log(error.response);
+        });
+    };
 
 	if (redirect) {
 		return <Redirect to='/login' />;
@@ -44,14 +62,25 @@ const Register = () => {
 				Sign up for an account to maintain your uploaded receipts. Once signed
 				up, you will be prompted to login.
 			</p>
-			<form onSubmit={handleSubmit} className='regForm'>
+			<form className='regForm'>
+				<div className='form-component'>
+					<label htmlFor='username'>Username: </label>
+					<input
+						required
+						type='text'
+						id='username'
+						value={user.username}
+						onChange={handleChange}
+					/>
+				</div>
+
 				<div className='form-component'>
 					<label htmlFor='email'>Email: </label>
 					<input
 						required
 						type='email'
 						id='email'
-						value={joinState.email}
+						value={user.email}
 						onChange={handleChange}
 					/>
 				</div>
@@ -62,27 +91,26 @@ const Register = () => {
 						onChange={handleChange}
 						type='password'
 						id='password'
-						value={joinState.password}
+						value={user.password}
 					/>
 				</div>
 				<div className='form-component'>
-					<label htmlFor='password2'>Confirm Password: </label>
+					<label htmlFor='re_password'>Confirm Password: </label>
 					<input
 						required
 						onChange={handleChange}
 						type='password'
-						id='password2'
-						value={joinState.password2}
+						id='re_password'
+						value={user.re_password}
 					/>
 				</div>
-				<button type='submit' className='pretty-button'>
+				<button onClick={handleSubmit} type='submit' className='pretty-button'>
 					Sign up
 				</button>
 				{passwordError && <h3>Passwords must match.</h3>}
 				<button className='pretty-button'>
 					<Link to='/login'>Cancel</Link>
 				</button>
-				
 			</form>
 		</div>
 	);
