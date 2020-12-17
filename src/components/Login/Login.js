@@ -1,33 +1,27 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import URL from '../../config';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [token, setToken] = useState();
-	// useEffect(() => {
-	// 	const loggedInToken = localStorage.getItem('token');
-	// 	if (loggedInToken) {
-	// 		const foundToken = JSON.parse(loggedInToken);
-	// 		setToken(foundToken);
-	// 	}
-	// }, []);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const data = { email, password };
 		// send the email and password to the server
-		const response = await axios.post(
-			`${URL}/token/login`,
-			data
-		);
+		const response = await axios({
+			method: "POST",
+			url: `${URL}/token/login`,
+			data: data
+		});
 		// set the state of the user
 		setToken(response.data.auth_token);
 		// store the user in localStorage
 		localStorage.setItem('token', response.data.auth_token);
-		console.log(response.data);
+
 	};
 
 	// if there's a user show the message below
@@ -56,12 +50,13 @@ const Login = () => {
 					onChange={({ target }) => setPassword(target.value)}
 				/>
 			</div>
-			<button type='submit' className='pretty-button'>Login</button>
+			<button type='submit' className='pretty-button'>Login</button> 
 
 			<button className='pretty-button'>
-				<Link to='/register'>New User</Link>
+				<Link to='/register'>Register</Link>
 			</button>
 		</form>
+		
         </div>
 	);
 };

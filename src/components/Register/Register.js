@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import URL from '../../config';
 import "../../index.css"
+import "./register.css"
 import { Link, Redirect } from 'react-router-dom';
 
 const Register = () => {
@@ -57,61 +58,67 @@ const Register = () => {
 	}
 
 	return (
-		<div>
-			<p className='sign-up'>
-				Sign up for an account to maintain your uploaded receipts. Once signed
-				up, you will be prompted to login.
-			</p>
-			<form className='regForm'>
-				<div className='form-component'>
-					<label htmlFor='username'>Username: </label>
-					<input
-						required
-						type='text'
-						id='username'
-						value={user.username}
-						onChange={handleChange}
-					/>
-				</div>
+		<div className='container'>
+			<div className='registrationFormContainer'>
+				<p>
+					Sign up for an account to maintain your uploaded receipts. Passwords
+					must be at least 8 characters long.
+				</p>
+				<div className='registrationFormLegend'>Registration Form</div>
+				<form className='regForm'>
+					<div className='form-component'>
+						<label htmlFor='username'>Username: </label>
+						<input
+							required
+							type='text'
+							id='username'
+							value={user.username}
+							onChange={handleChange}
+						/>
+					</div>
 
-				<div className='form-component'>
-					<label htmlFor='email'>Email: </label>
-					<input
-						required
-						type='email'
-						id='email'
-						value={user.email}
-						onChange={handleChange}
-					/>
-				</div>
-				<div className='form-component'>
-					<label htmlFor='password'>Password: </label>
-					<input
-						required
-						onChange={handleChange}
-						type='password'
-						id='password'
-						value={user.password}
-					/>
-				</div>
-				<div className='form-component'>
-					<label htmlFor='re_password'>Confirm Password: </label>
-					<input
-						required
-						onChange={handleChange}
-						type='password'
-						id='re_password'
-						value={user.re_password}
-					/>
-				</div>
-				<button onClick={handleSubmit} type='submit' className='pretty-button'>
-					Sign up
-				</button>
-				{passwordError && <h3>Passwords must match.</h3>}
-				<button className='pretty-button'>
-					<Link to='/login'>Cancel</Link>
-				</button>
-			</form>
+					<div className='form-component'>
+						<label htmlFor='email'>Email: </label>
+						<input
+							required
+							type='email'
+							id='email'
+							value={user.email}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className='form-component'>
+						<label htmlFor='password'>Password: </label>
+						<input
+							required
+							onChange={handleChange}
+							type='password'
+							id='password'
+							value={user.password}
+						/>
+					</div>
+					<div className='form-component'>
+						<label htmlFor='re_password'>Confirm Password: </label>
+						<input
+							required
+							onChange={handleChange}
+							type='password'
+							id='re_password'
+							value={user.re_password}
+						/>
+					</div>
+					<button
+						onClick={handleSubmit}
+						type='submit'
+						className='pretty-button'>
+						Sign up
+					</button>
+					{passwordError && <h3>Passwords must match.</h3>}
+					<button className='pretty-button'>
+						<Link to='/login'>Sign In</Link>
+					</button>
+				</form>
+			</div>
 		</div>
 	);
 };

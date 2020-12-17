@@ -5,74 +5,36 @@ import './detail.css';
 import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
 import APIURL from '../../config';
+import Header from "../Header/Header"
 
 const receiptInfo = `${APIURL}/receipts`;
 
-const Detail = ({ match }) => {
-	const history = useHistory();
-	const [detail, setDetail] = useState('');
-	const [receipt, setReceipt] = useState('');
+const Detail = ({match}) => {
+	const [detail, setDetail] = useState("");
+	const url = `${receiptInfo}/${match.params.id}`
+
 	useEffect(() => {
-		const url = `${receiptInfo}${match.params.id}`;
-		console.log(url);
 		axios({
-			url: receiptInfo,
+			url: url,
+			method: "GET",
 			headers: {
 				'content-type': 'multipart/form-data',
 				Authorization: `Token ${localStorage.getItem('token')}`,
 			},
 		})
 			.then((res) => {
-				setReceipt(res.data);
+				setDetail(res.data);
 			})
-			.catch((err) => {
-				return 'There appears to be a file with Detail.js.';
+			.catch((error) => {
+				console.log(error.response);
 			});
 	}, []);
 
-	// Delete a Submission
-	const handleDelete = (event) => {
-		const url = `${receiptInfo}${match.params.id}`;
-		axios({
-			url: url,
-			method: 'DELETE',
-		})
-			.then(() => {
-				history.push('/');
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	};
-
-	// // Update a receipt
-
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		const url = `${receiptInfo}${match.params.id}`;
-		axios({
-			url: url,
-			method: 'PUT',
-			data: detail,
-			headers: {
-				'content-type': 'multipart/form-data',
-				Authorization: `Token ${localStorage.getItem('token')}`,
-			},
-		}).then(() => {
-			history.push('/');
-		});
-	};
-
-	const handleChange = (event) => {
-		event.persist();
-		setDetail({ ...detail, [event.target.name]: event.target.value });
-	};
-
 	return (
 		<div>
-			<button className='pretty-button' onClick={handleDelete}>
-				Delete Receipt
-			</button>
+			<Header /> hi
+			<img src={detail.receipt_image} alt={detail.retailer} />
+			<p>{detail.items}</p>
 		</div>
 	);
 };

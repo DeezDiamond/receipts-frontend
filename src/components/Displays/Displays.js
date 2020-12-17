@@ -24,24 +24,26 @@ const Displays = () => {
 				setReceipt(res.data);
 			})
 			.catch((err) => {
-				return 'There appears to be a file with Displays.js.';
+				return err;
 			});
 	}, []);
 
 	return (
-		<div className='holder'>
+		<div>
 			<Header />
-			hi
+		<div className='holder'>
+
 			{receipt.map((receipt) => {
 				return (
-					<Link to={`receipts/${receipt.id}`} key={receipt.id}>
+					<Link to={`receipts/${receipt.id}/`} key={receipt.id}>
 						<div className='card'>
 							<img src={receipt.receipt_image} alt='{receipt.retailer}' />
-							<div className='card-name'>{receipt.retailer}</div>
+							<div className='card-name'>{receipt.retailer}, ${receipt.amount}</div>
 						</div>
 					</Link>
 				);
 			})}
+		</div>
 		</div>
 	);
 };

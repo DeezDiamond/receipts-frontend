@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch, Redirect, } from 'react-router-
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Displays from './components/Displays/Displays';
+import Detail from "./components/Detail/Detail"
 import Submit from "./components/Submit/Submit"
 import Error from './components/Error/Error';
 
@@ -17,25 +18,32 @@ const authGuard = (Component) => () => {
 const Routes = (props) => (
 	<Router {...props}>
 		<Switch>
-			<Route path='/login'>
+			<Route exact path='/login'>
 				<Login />
 			</Route>
 
-			<Route path='/register'>
+			<Route exact path='/register'>
 				<Register />
 			</Route>
 
-			<Route path='/receipts' render={authGuard(Displays)}></Route>
+			<Route exact path='/receipts' render={authGuard(Displays)}></Route>
 
 			<Route exact path='/'>
 				<Redirect to='/receipts' />
 			</Route>
 
-			<Route path='/submit' render={authGuard(Submit)}></Route>
+			<Route exact path='/submit' render={authGuard(Submit)}></Route>
 
 			<Route exact path='/submit'>
 				<Redirect to='/submit' />
 			</Route>
+
+			<Route exact path='/receipts/:id' render={(routerProps) => {
+				return <Detail match={routerProps.match} />
+			} }></Route>
+
+			{/* <Route exact path='/detail'>
+			</Route> */}
 
 			<Route path='*'>
 				<Error />

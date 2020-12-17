@@ -1,0 +1,31 @@
+.container {
+	height: 100vh;
+	align-items: center;
+    justify-content: center;
+    margin-left: 10vh;
+}
+
+.registrationFormContainer {
+	width: 24rem;
+}
+
+.registrationFormLegend {
+	width: 14rem;
+	background: #dee2e6;
+	border: 1px solid;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.form-component {
+    background: #7c7c88;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.errorMessage {
+	font-size: 12px;
+	letter-spacing: 0.05rem;
+	padding-left: 0.25rem;
+}
