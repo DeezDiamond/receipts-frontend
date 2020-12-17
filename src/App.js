@@ -1,13 +1,15 @@
 import { React, useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header.js';
-import Login from "./components/Auth/Login"
-import Register from "./components/Auth/Register"
+import Login from "./components/Login/Login"
+import Register from "./components/Register/Register"
 import Submit from './components/Submit/Submit';
 import Displays from './components/Displays/Displays';
 import Detail from './components/Detail/Detail';
 import axios from 'axios';
 import URL from './config';
+
+
 
 const App = () => {
 

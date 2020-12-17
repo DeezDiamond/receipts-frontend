@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import './auth.css';
 import URL from '../../config';
 import { Redirect } from 'react-router-dom';
 

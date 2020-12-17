@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './auth.css';
 import Axios from 'axios';
 import URL from '../../config';
 import { Redirect } from 'react-router-dom';
@@ -31,9 +30,7 @@ const Register = () => {
 				console.log(res);
 				setRedirect(true);
 			});
-		} else {
-			setPasswordError(true);
-		}
+		} 
 	};
 
 	if (redirect) {

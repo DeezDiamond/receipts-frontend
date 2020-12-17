@@ -1,7 +1,7 @@
 // // Will contain navigation and indication that the user is logged in. 
 import React, { useState } from 'react';
 import { Link, Route } from 'react-router-dom';
-import Login from '../../components/Auth/Login';
+import Login from '../../components/Login/Login';
 import './header.css';
 
 const Header = () => {
@@ -23,6 +23,7 @@ const Header = () => {
 				<Link to='/submit'>Upload Receipt</Link> »
 				<Link to='/login'>Login</Link> »<Link to='/register'>Register</Link>
 			</nav>
+
 			{/* {token && <h2>You are logged in!!</h2>} */}
             <button onClick={handleLogout}>logout</button>
 		</div>

@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom';
 import './displays.css';
 import URL from '../../config';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Displays = () => {
-    const [receipt, setReceipt] = useState([]);
-	const nostalgia = `${URL}/receipts`;
+	const [receipt, setReceipt] = useState([]);
+	const history = useHistory();
+
+	const userReceipts = `${URL}/receipts`;
 	useEffect(() => {
-		axios(nostalgia)
+		axios(userReceipts)
 			.then((res) => {
 				setReceipt(res.data);
 			})
@@ -25,7 +28,7 @@ const Displays = () => {
 					return (
 						<Link to={`/${receipt._id}`} key={receipt._id}>
 							<div className='card'>
-								<img src={receipt.imgUrl} alt='{receipt.title}' />
+								<img src={receipt.receipt_image} alt='{receipt.title}' />
 								<div className='card-name'>{receipt.title}</div>
 							</div>
 						</Link>
