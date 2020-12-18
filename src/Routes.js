@@ -38,12 +38,9 @@ const Routes = (props) => (
 				<Redirect to='/submit' />
 			</Route>
 
-			<Route exact path='/receipts/:id' render={(routerProps) => {
+			<Route exact path='/receipts/:id/' render={(routerProps) => {
 				return <Detail match={routerProps.match} />
 			} }></Route>
-
-			{/* <Route exact path='/detail'>
-			</Route> */}
 
 			<Route path='*'>
 				<Error />
@@ -52,3 +49,5 @@ const Routes = (props) => (
 	</Router>
 );
 export default Routes;
+
+// // https://codeburst.io/to-handle-user-authentication-with-reactjs-2f565e7e0d63
