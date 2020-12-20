@@ -37,23 +37,24 @@ const Detail = ({match}) => {
 	const [file, setFile] = useState(null);
 	const receiptUpdate = (event) => {
 		event.preventDefault();
-		// const formData = new FormData();
-        // formData.append("receipt_image", file)
-        // formData.append("retailer", receipt.retailer)
-        // formData.append("date", receipt.data)
-        // formData.append("amount", receipt.amount)
-        // formData.append("items", receipt.items)
+		const formData = new FormData();
+        formData.append("receipt_image", file)
+        formData.append("retailer", receipt.retailer)
+        formData.append("date", receipt.data)
+        formData.append("amount", receipt.amount)
+        formData.append("items", receipt.items)
 		axios({
 			url: url,
 			method: 'PUT',
+			data: formData,
 			headers: {
-				// 'content-type': 'multipart/form-data; ',
-				Authorization: `Token ${localStorage.getItem('token')}`,
-			},
-			data: receipt,
-		})
-		.then((res) => {
+					'content-type': 'multipart/form-data;',
+					"Authorization": `Token ${localStorage.getItem('token')}`,
+				}
+
+			}).then((res) => {
 				console.log(res);
+				// history.push('/');
 			})
 			.catch(error => {
             console.log(error.response);
@@ -124,7 +125,7 @@ const Detail = ({match}) => {
 						placeholder='Receipt Total (include taxes)'
 					/>{' '}
 					<br />
-					{/* <label htmlFor='upload'>Upload Image:</label>
+					<label htmlFor='upload'>Upload Image:</label>
 					<input
 						type='file'
 						onChange={(event) => {
@@ -134,7 +135,7 @@ const Detail = ({match}) => {
 						name='receipt_image'
 						id='receipt_image'
 						accept='image/png, image/jpeg, image/jpg'
-					/>{' '} */}
+					/>{' '}
 					<br />
 					<label htmlFor='items'>Items Purchased:</label>
 					<input
