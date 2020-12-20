@@ -23,7 +23,9 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 > - Steps to recreate the error
 
 ## Currently Known Issues
-- It's a known issue that updating an already uploaded receipt isn't functioning correctly. Although not ideal, it's advised to delete a receipt and reupload it. 
+- Update: December 20, 2020. Updating a receipt now works. However, all fields must be filled in in order for the update request to go through. 
+
+- Redirect currently doesn't work properly for when logging in, updating, or deleting a receipt. Please click on the appropriate home page links. 
 
 ## Credit
 - Routes and creating a dashboard: https://codeburst.io/to-handle-user-authentication-with-reactjs-2f565e7e0d63
