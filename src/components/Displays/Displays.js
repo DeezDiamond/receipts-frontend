@@ -5,12 +5,10 @@ import { Link } from 'react-router-dom';
 import './displays.css';
 import URL from '../../config';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
 const Displays = () => {
 	const [receipt, setReceipt] = useState([]);
-	const history = useHistory();
 
 	const userReceipts = `${URL}/receipts`;
 	useEffect(() => {
