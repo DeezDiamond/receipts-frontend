@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import URL from '../../config';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [token, setToken] = useState();
+	const [redirect, setRedirect] = useState(false);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -21,12 +22,13 @@ const Login = () => {
 		setToken(response.data.auth_token);
 		// store the user in localStorage
 		localStorage.setItem('token', response.data.auth_token);
+		setRedirect(true);
 
 	};
 
 	// if there's a user show the message below
-	if (token) {
-		return <div>You're loggged in. Go to your <Link to='/'>Home Page</Link>receipts</div>;
+	if (redirect) {
+		return <Redirect to='/' />;
 	}
 
 	// if there's no user, show the login form
