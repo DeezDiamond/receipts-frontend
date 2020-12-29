@@ -41,9 +41,9 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 > - Steps to recreate the error
 
 ## Currently Known Issues
-- Update: December 20, 2020. Updating a receipt now works. However, all fields must be filled in in order for the update request to go through. 
+- December 29, 2020: Redirects now function properly for registration, logging in, and uploading a receipt. 
 
-- Redirect currently doesn't work properly for when logging in, updating, or deleting a receipt. Please click on the appropriate home page links. 
+- December 20, 2020. Updating a receipt now works. However, all fields must be filled in in order for the update request to go through. 
 
 ## Credit
 - Routes and creating a dashboard: https://codeburst.io/to-handle-user-authentication-with-reactjs-2f565e7e0d63

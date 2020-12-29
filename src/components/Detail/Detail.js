@@ -52,8 +52,6 @@ const Detail = ({match}) => {
 				}
 
 			}).then((res) => {
-				console.log(res);
-				// history.push('/');
 			})
 			.catch(error => {
             console.log(error.response);
