@@ -21,9 +21,9 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 - As a user, I want to be able to perform CRUD operations as necessary to maintain receipts on my account. 
 
 ## Screenshots
-![image]()
-![image]()
-![image]()
+![image](https://raw.githubusercontent.com/DeezDiamond/receipts-frontend/main/planning/Screen%20Shot%202020-12-29%20at%204.30.07%20PM.png)
+![image](https://raw.githubusercontent.com/DeezDiamond/receipts-frontend/main/planning/Screen%20Shot%202020-12-29%20at%204.31.23%20PM.png)
+![image](https://raw.githubusercontent.com/DeezDiamond/receipts-frontend/main/planning/Screen%20Shot%202020-12-29%20at%204.31.47%20PM.png)
 
 ## Wireframes
 ![image](https://media.git.generalassemb.ly/user/30672/files/6e18e380-3994-11eb-8304-a259afe83fc6)
