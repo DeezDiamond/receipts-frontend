@@ -35,7 +35,7 @@ const Displays = () => {
 				return (
 					<Link to={`receipts/${receipt.id}/`} key={receipt.id}>
 						<div className='card'>
-							<img src={receipt.receipt_image} alt='{receipt.retailer}' />
+							<img src={receipt.receipt_image} alt={receipt.retailer} />
 							<div className='card-name'>{receipt.retailer}, ${receipt.amount}</div>
 						</div>
 					</Link>

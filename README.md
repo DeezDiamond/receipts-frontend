@@ -20,6 +20,11 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 - As a user, I want to be able to view all my receipts in a single place so I can remind myself of past purchases I may have forgotten about. 
 - As a user, I want to be able to perform CRUD operations as necessary to maintain receipts on my account. 
 
+## Screenshots
+![image]()
+![image]()
+![image]()
+
 ## Wireframes
 ![image](https://media.git.generalassemb.ly/user/30672/files/6e18e380-3994-11eb-8304-a259afe83fc6)
 ![image](https://media.git.generalassemb.ly/user/30672/files/796c0f00-3994-11eb-97a4-7cf2f23ae11b)
