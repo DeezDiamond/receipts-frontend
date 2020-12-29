@@ -14,7 +14,6 @@ const Submit = () => {
         retailer: "",
         date: "",
         amount: "",
-        // receipt_image: "",
         items: "",
     });
 

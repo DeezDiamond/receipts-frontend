@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 import './detail.css';
 import "../../index.css"
 import axios from 'axios';
-import { Redirect, useHistory } from 'react-router-dom';
 import APIURL from '../../config';
 import Header from "../Header/Header"
+import { Redirect, useHistory } from 'react-router-dom';
 
 const receiptInfo = `${APIURL}/receipts`;
 
 const Detail = ({match}) => {
+	const [redirect, setRedirect] = useState(false);
 	const [receipt, setReceipt] = useState("");
 	const url = `${receiptInfo}/${match.params.id}/`
 
@@ -33,7 +34,7 @@ const Detail = ({match}) => {
 
 
 	// // Update a receipt.
-	const [tweak, setTweak] = useState(null);
+
 	const [file, setFile] = useState(null);
 	const receiptUpdate = (event) => {
 		event.preventDefault();
@@ -53,16 +54,13 @@ const Detail = ({match}) => {
 				}
 
 			}).then((res) => {
-				console.log(res);
-				// history.push('/');
+				setRedirect(true);
 			})
 			.catch(error => {
             console.log(error.response);
         });
 	}
-	if (tweak) {
-		return <Redirect to={`/${tweak}`} />
-	}
+
 	const handleChange = (event) => {
 		event.persist();
 		setReceipt({...receipt, [event.target.name]: event.target.value});
@@ -78,7 +76,13 @@ const Detail = ({match}) => {
 				'content-type': 'multipart/form-data',
 				Authorization: `Token ${localStorage.getItem('token')}`,
 			},
+		}).then((res) => {
+			setRedirect(true);
 		});
+	}
+
+	if (redirect) {
+		return <Redirect to='/' />;
 	}
 
 	return (
@@ -149,12 +153,14 @@ const Detail = ({match}) => {
 					<br />
 					<button onClick={receiptUpdate} className='pretty-button'>
 						Update Receipt
-					</button>
-				</form>
+					</button> »
 
 				<button className='pretty-button' onClick={receiptDelete}>
 					Delete Receipt
 				</button>
+
+				</form>
+
 			</div>
 		</div>
 	);

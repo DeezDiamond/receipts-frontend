@@ -9,7 +9,6 @@ import { Link, Redirect } from 'react-router-dom';
 
 const Register = () => {
 
-	const [passwordError, setPasswordError] = useState(false);
 	const [redirect, setRedirect] = useState();
 
 	const signup = {
@@ -45,8 +44,7 @@ const Register = () => {
                 }
             
         }).then((res) => {
-            console.log(res);
-            redirect.push("/login");
+            setRedirect(true);
         })
         .catch(error => {
             console.log(error.response);
@@ -113,7 +111,6 @@ const Register = () => {
 						className='pretty-button'>
 						Sign up
 					</button>
-					{passwordError && <h3>Passwords must match.</h3>}
 					<button className='pretty-button'>
 						<Link to='/login'>Sign In</Link>
 					</button>

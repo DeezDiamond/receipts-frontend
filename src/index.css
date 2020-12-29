@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fff1d3;
 }
 
 code {
@@ -12,23 +13,28 @@ code {
     monospace;
 }
 
-.pretty-button{
+.pretty-button {
     border: none;
     font-size: 1rem;
-}
-
-.pretty-button {
-    background-color: #1e90ff;
-    color: #ffffff;
-    padding: 0.75rem 1rem;
+    background-color: #6f3613;
+    color: #fff;
+    padding: 0.75rem 0.75rem;
     transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
 }
 
+.pretty-button a:visited {
+  color: #fff;
+}
+
 .pretty-button:focus {
-    box-shadow: 0 0 5px#1e90ff;
+    box-shadow: 0 0 5px#fff;
     outline: none;
 }
 
 .pretty-button:hover {
-    background-color: #1880e7;
+    background-color: #ffdef5;
+}
+
+.pretty-button a:hover {
+    color: #6f3613;
 }
