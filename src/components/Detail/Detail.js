@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import './detail.css';
 import "../../index.css"
 import axios from 'axios';
-import { Redirect, useHistory } from 'react-router-dom';
 import APIURL from '../../config';
 import Header from "../Header/Header"
 
@@ -33,7 +32,7 @@ const Detail = ({match}) => {
 
 
 	// // Update a receipt.
-	const [tweak, setTweak] = useState(null);
+
 	const [file, setFile] = useState(null);
 	const receiptUpdate = (event) => {
 		event.preventDefault();
@@ -60,9 +59,7 @@ const Detail = ({match}) => {
             console.log(error.response);
         });
 	}
-	if (tweak) {
-		return <Redirect to={`/${tweak}`} />
-	}
+
 	const handleChange = (event) => {
 		event.persist();
 		setReceipt({...receipt, [event.target.name]: event.target.value});
