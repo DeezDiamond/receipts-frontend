@@ -41,7 +41,7 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 > - Steps to recreate the error
 
 ## Currently Known Issues
-- December 29, 2020: Redirects now function properly for registration, logging in, and uploading a receipt. 
+- December 29, 2020: Redirects now function properly for registration, logging in, uploading, and deleting a receipt. 
 
 - December 20, 2020. Updating a receipt now works. However, all fields must be filled in in order for the update request to go through. 
 

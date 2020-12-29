@@ -6,10 +6,12 @@ import "../../index.css"
 import axios from 'axios';
 import APIURL from '../../config';
 import Header from "../Header/Header"
+import { Redirect, useHistory } from 'react-router-dom';
 
 const receiptInfo = `${APIURL}/receipts`;
 
 const Detail = ({match}) => {
+	const [redirect, setRedirect] = useState(false);
 	const [receipt, setReceipt] = useState("");
 	const url = `${receiptInfo}/${match.params.id}/`
 
@@ -73,7 +75,13 @@ const Detail = ({match}) => {
 				'content-type': 'multipart/form-data',
 				Authorization: `Token ${localStorage.getItem('token')}`,
 			},
+		}).then((res) => {
+			setRedirect(true);
 		});
+	}
+
+	if (redirect) {
+		return <Redirect to='/' />;
 	}
 
 	return (
