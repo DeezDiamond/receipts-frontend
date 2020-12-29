@@ -54,6 +54,7 @@ const Detail = ({match}) => {
 				}
 
 			}).then((res) => {
+				setRedirect(true);
 			})
 			.catch(error => {
             console.log(error.response);
@@ -152,12 +153,14 @@ const Detail = ({match}) => {
 					<br />
 					<button onClick={receiptUpdate} className='pretty-button'>
 						Update Receipt
-					</button>
-				</form>
+					</button> »
 
 				<button className='pretty-button' onClick={receiptDelete}>
 					Delete Receipt
 				</button>
+
+				</form>
+
 			</div>
 		</div>
 	);

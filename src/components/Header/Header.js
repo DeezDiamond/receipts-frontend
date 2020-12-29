@@ -15,9 +15,15 @@ const Header = () => {
 		<div className='header'>
 			<h1>Save Your Receipts</h1>
 			<nav>
-				<Link to='/'>Home Page</Link> »
-				<Link to='/submit'>Upload Receipt</Link> 
-				<button onClick={handleLogout} className="pretty-button">logout</button>
+				<button className='pretty-button'>
+				<Link to='/'>Home Page</Link>
+				</button> »
+
+				<button className='pretty-button'>
+				<Link to='/submit'>Upload Receipt</Link>
+				</button>  »
+
+				<button onClick={handleLogout} className="pretty-button">Logout</button>
 			</nav>
 
 			{/* {token && <h2>You are logged in!!</h2>} */}
