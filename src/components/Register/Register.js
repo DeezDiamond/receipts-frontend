@@ -45,8 +45,7 @@ const Register = () => {
                 }
             
         }).then((res) => {
-            console.log(res);
-            redirect.push("/login");
+            setRedirect(true);
         })
         .catch(error => {
             console.log(error.response);
