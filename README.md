@@ -7,6 +7,7 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 - Register, Login, Logout 
 - Dashboard to view personal receipts
 - Upload, view, and delete receipts 
+- Backend repo: https://github.com/DeezDiamond/receipts-backend
 
 ## Technologies Used 
 - Frontend: 
@@ -25,6 +26,12 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 ![image](https://media.git.generalassemb.ly/user/30672/files/afa98e80-3994-11eb-8075-76e45c230f3e)
 ![image](https://media.git.generalassemb.ly/user/30672/files/0f546980-3996-11eb-82ae-a599744e4174)
 ![image](https://media.git.generalassemb.ly/user/30672/files/c2bc5e80-3994-11eb-9a01-cdf53e52b177)
+
+## Installation Instructions 
+- Clone this repository with `git clone ` and copying and pasting the SSH link into the terminal. 
+- Navigate into the download location, then install dependencies with `npm install`
+- Open the directory with `code .`
+- To start the front end server, either run `npm start` in the terminal, or under NPM Scripts in VS Code press Start. Once the server is running, navigate to http://localhost:3000/
 
 ## Contribution Guidelines 
 - If there is a bug with the app, please provide the following information when submitting a bug report.
