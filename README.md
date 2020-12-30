@@ -7,6 +7,7 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 - Register, Login, Logout 
 - Dashboard to view personal receipts
 - Upload, view, and delete receipts 
+- Deployed application: https://receipt-saver.herokuapp.com/
 - Backend repo: https://github.com/DeezDiamond/receipts-backend
 
 ## Technologies Used 
@@ -37,6 +38,7 @@ Video Walkthrough: https://youtu.be/jAOs4Lgt7mc
 - Navigate into the download location, then install dependencies with `npm install`
 - Open the directory with `code .`
 - To start the front end server, either run `npm start` in the terminal, or under NPM Scripts in VS Code press Start. Once the server is running, navigate to http://localhost:3000/
+- Be sure to install the complimentary backend for this project, which can be located at https://github.com/DeezDiamond/receipts-backend
 
 ## Contribution Guidelines 
 - If there is a bug with the app, please provide the following information when submitting a bug report.
